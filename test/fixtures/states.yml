@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  abrv: MyString
+  name: MyString
+  population: 1
+
+two:
+  abrv: MyString
+  name: MyString
+  population: 1
