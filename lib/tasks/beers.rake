@@ -4,10 +4,10 @@ namespace :beers do
   task seed_beers: :environment do
 
     #drop old data before importing new data
+    State.destroy_all
   	Brewery.destroy_all
   	Style.destroy_all
   	Beer.destroy_all
-  	State.destroy_all
 
   	CSV.foreach("lib/assets/US_Brews/states.csv", :headers =>true) do |row |
 
@@ -28,7 +28,8 @@ namespace :beers do
       Brewery.create!(
       name: row[1],
       city: row[2],
-      state_id: id
+      state_id: id,
+      bid: row[0].to_i
     )
     end
 
@@ -43,7 +44,10 @@ namespace :beers do
     CSV.foreach("lib/assets/US_Brews/beers.csv", :headers =>true) do |row |
 
     	style = Style.find_by(name: row[5])
-    	id = style ? style.id.to_i : nil
+    	style_id = style ? style.id.to_i : nil
+
+      brewery = Brewery.find_by(bid: row[6].to_i)
+      brewery_id = brewery ? brewery.id.to_i : nil
 
       #create new model instances with the data
       Beer.create!(
@@ -51,8 +55,8 @@ namespace :beers do
       abv: row[1].to_f,
       ibu: row[2].to_f,
       ounces: row[7].to_f,
-      brewery_id: row[6].to_i,
-      style_id: id
+      brewery_id: brewery_id,
+      style_id: style_id
     )
     end
 

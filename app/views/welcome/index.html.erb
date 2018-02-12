@@ -1,9 +1,28 @@
 <h1>Welcome to United Crafts of America</h1>
 <p>A website dedicated to the craft brews in USA</p>
-<p>Testing associations...</p>
+<p>Some association testing...</p>
+<h2>Florida Breweries</h2>
+<ul>
+<% State.find_by(abrv: "FL").breweries.each do |b| %>
+<li><%= b.name %></li>
+<% end %>
+</ul>
 
-<%= State.find(Brewery.all.first.state_id).breweries.first.name %>
+<h2>Sierra Nevada Brewing Company - Brews:</h2>
+<ul>
+<% Brewery.find_by(name: "Sierra Nevada Brewing Company").beers.each do |b| %>
+<li><%= b.name %></li>
+<% end %>
+</ul>
 
-<%= Style.find(Beer.all.first.style_id).beers.first.name %>
+<h2>Beer Style - American IPA:</h2>
+<ul>
+<% Style.find_by(name: "American IPA").beers.each do |b| %>
+<li><%= b.name %></li>
+<% end %>
+</ul>
+
+<h2>Super G IPA - Style:</h2>
+<%= Beer.find_by(name: "Super G IPA").style.name %>
 
 <p>Success!</p>
