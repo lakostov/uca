@@ -1,10 +1,76 @@
+
 <h1>Welcome to United Crafts of America</h1>
 <p>A website dedicated to the craft brews in USA</p>
+<h2>Click on each marker to expand state data.</h2>
+<div id="map"></div>
+    <script>
+      function initMap() {
 
-<h2>Number of craft beers per head of population (population - scale 1:100000)</h2>
-<ul>
-<% @ratio.each do |k,v| %>
-<li><%= k %>: <%= number_with_precision(v, precision: 3)%></li>
-<% end %>
-</ul>
+        // load the map
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 40, lng: -100},
+          zoom: 4,
+          styles: mapStyle
+        });
+
+      var mapStyle = [{
+          'featureType': 'all',
+          'elementType': 'all',
+          'stylers': [{'visibility': 'off'}]
+        }, {
+          'featureType': 'landscape',
+          'elementType': 'geometry',
+          'stylers': [{'visibility': 'on'}, {'color': '#fcfcfc'}]
+        }, {
+          'featureType': 'water',
+          'elementType': 'labels',
+          'stylers': [{'visibility': 'off'}]
+        }, {
+          'featureType': 'water',
+          'elementType': 'geometry',
+          'stylers': [{'visibility': 'on'}, {'hue': '#5f94ff'}, {'lightness': 60}]
+        }];
+
+        <% @states.each do |s| %>
+        <% num_beers = 0 %>
+        <% num_breweries = s.breweries.count() %>
+        <% s.breweries.each do |br| %>
+        <% num_beers += br.beers.count() %>
+        <% end %>
+        var marker = new google.maps.Marker({
+	      position: {lat: <%= s.lat %>, lng: <%= s.long %>},
+	      map: map,
+	      icon: {
+		  url: "/marker.png",
+		  scaledSize: new google.maps.Size(35, 45),
+      animation:google.maps.Animation.DROP
+	      }
+        }).addListener('click', function(){ 
+                    new google.maps.InfoWindow({
+                    content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h3>' + '<%= s.name %>' +'</h3>'+
+            '<div id="bodyContent">'+'<span>'+'Number of breweries: ' + '<%= num_breweries %>' + '</span>'+ '<br>'+
+            '<span>'+'Number of crafts: '+'<%= num_beers %>'+'</span>'+
+            '</div>'+
+            '</div>'
+                }).open(map, this);
+        });
+
+        <% end %>
+      
+      }
+
+   </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBg299oHS0oMVGpAQ9bym65s8aIsFSkzq8&callback=initMap">
+    </script>
+
+
+
+
+
+
+
 
