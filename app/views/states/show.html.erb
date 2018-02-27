@@ -1,0 +1,7 @@
+<h1><%= @state.name %></h1>
+<ul>
+     <% @state.breweries.each do |br| %>
+    <li><%= link_to br.name, "/breweries/#{br.id}" %></li>
+    <% end %>
+</ul>
+

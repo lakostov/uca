@@ -50,7 +50,7 @@
                     content: '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
-            '<h3>' + '<%= s.name %>' +'</h3>'+
+            '<h3>' + '<%= link_to s.name, "/states/#{s.id}" %>' +'</h3>'+
             '<div id="bodyContent">'+'<span>'+'Number of breweries: ' + '<%= num_breweries %>' + '</span>'+ '<br>'+
             '<span>'+'Number of crafts: '+'<%= num_beers %>'+'</span>'+
             '</div>'+
