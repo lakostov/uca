@@ -3,16 +3,14 @@
   <head>
     <title>Uca</title>
     <%= csrf_meta_tags %>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
   	<%= render :partial=> "layouts/header" %>
-  	
     <%= yield %>
-    <div class="clearfix"></div>
     <%= render :partial=> "layouts/footer" %>
   </body>
 </html>

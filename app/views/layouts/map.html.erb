@@ -3,11 +3,10 @@
   <head>
   	 <title>Uca</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
       
       <style>
   html, body, #map { height: 80%; margin: 20; padding: 20; }
@@ -79,7 +78,6 @@
   <body>
     <%= render :partial=> "layouts/header" %>
     <%= yield %>
-    <div class="clearfix"></div>
     <%= render :partial=> "layouts/footer" %>
   </body>
 </html>

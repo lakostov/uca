@@ -5,8 +5,12 @@ body {
     background: #ffffff url("/repeating-vintage-paper-background.jpg") repeat;
     text-align: center;
     padding-top: 45px;
-    padding-bottom: 65px;
+    padding-bottom: 85px;
     clear: both;
+}
+.row {
+	padding: 0 !important;
+	margin: 0 0 45px 0 !important;
 }
 #bodyContent span {
 	font-weight: bold;
@@ -24,6 +28,9 @@ ul {
 }
 .under-nav .home_header {
 	margin-top: 0;
+}
+.clear {
+	clear: both;
 }
 .footer {
     position: fixed;
