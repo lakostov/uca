@@ -1,9 +1,56 @@
 // Place all the styles related to the styles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+    background: #ffffff url("/repeating-vintage-paper-background.jpg") repeat;
+    text-align: center;
+    padding-top: 45px;
+}
 #bodyContent span {
 	font-weight: bold;
 }
 ul {
 	list-style: none;
+}
+.under-nav {
+    display: block;
+    width: 100%;
+    color: #fff2cc;
+	background: #4d3319;
+	padding: 10px 0;
+	margin-bottom: 10px;
+}
+.under-nav .home_header {
+	margin-top: 0;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #3a2613;
+    color: #fff2cc;
+    text-align: center;
+    padding-top: 10px;
+}
+ul.nav li a, ul.nav li a:visited {
+    color: #fff !important;
+}
+
+ul.nav li a:hover, ul.nav li a:active {
+    color: #ccc !important;
+}
+a:link {
+	color: #66b5ff !important;
+}
+a:visited {
+	color: #66b5ff !important;
+}
+a:hover {
+	color: #808080 !important;
+	text-decoration: none !important;
+	background: none !important;
+}
+a:active {
+	
 }

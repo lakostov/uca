@@ -1,4 +1,6 @@
+<div class="under-nav">
 <h1><%= @state.name %></h1>
+</div>
 <ul>
      <% @state.breweries.each do |br| %>
     <li><%= link_to br.name, "/breweries/#{br.id}" %></li>
