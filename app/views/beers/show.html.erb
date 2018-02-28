@@ -1,7 +1,6 @@
 <div class="under-nav">
 <h1><%= @beer.name %></h1>
 </div>
-<div class="row">
 <div class="col-lg-4 col-xl-4 col-md-4"></div>
 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
 <% if @beer.style_id %>
@@ -17,6 +16,7 @@
   <li>Brewery: <%= link_to Brewery.find(@beer.brewery_id).name, "/breweries/#{@beer.brewery_id}" %></li>
   <li>Style: <%= link_to style.name, "/styles/#{style.id}" %></li>
 </ul>
+</div>
 <div class="col-lg-4 col-xl-4 col-md-4"></div>
 <%- #link_to 'Edit', edit_beer_path(@beer) %> 
 <%- #link_to 'Back', beers_path %>
