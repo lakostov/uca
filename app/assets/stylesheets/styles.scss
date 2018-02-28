@@ -5,6 +5,8 @@ body {
     background: #ffffff url("/repeating-vintage-paper-background.jpg") repeat;
     text-align: center;
     padding-top: 45px;
+    padding-bottom: 45px;
+    clear: both;
 }
 #bodyContent span {
 	font-weight: bold;
@@ -25,13 +27,32 @@ ul {
 }
 .footer {
     position: fixed;
-    left: 0;
     bottom: 0;
+    left: 0;
     width: 100%;
     background-color: #3a2613;
     color: #fff2cc;
     text-align: center;
-    padding-top: 10px;
+    padding: 15px 0 10px 0;
+}
+.float_left {
+	float: left;
+	margin-right: 20px;
+}
+table {
+	text-align: left;
+	margin: 10px 20px;
+	padding: 10px 0;
+	font-weight: bold;
+	border-spacing: 5px;
+
+	td {
+	padding: 5px;
+	}
+
+	th {
+	padding: 5px;
+	}
 }
 ul.nav li a, ul.nav li a:visited {
     color: #fff !important;
@@ -53,4 +74,13 @@ a:hover {
 }
 a:active {
 	
+}
+.list_left {
+	text-align: left;
+	padding: 20px;
+
+	li {
+	font-weight: bold;
+	margin-bottom: 5px;
+	}
 }

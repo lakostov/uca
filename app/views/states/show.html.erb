@@ -1,9 +1,16 @@
 <div class="under-nav">
 <h1><%= @state.name %></h1>
 </div>
-<ul>
+<div class="row">
+<div class="col-lg-4 col-xl-4 col-md-4"></div>
+<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+<h3>Breweries in <%= @state.name %>:</h3>
+<ul class="list_left">
      <% @state.breweries.each do |br| %>
-    <li><%= link_to br.name, "/breweries/#{br.id}" %></li>
+    <li>Name: <%= link_to br.name, "/breweries/#{br.id}" %> City: <%= br.city %></li>
     <% end %>
 </ul>
+</div>
+<div class="col-lg-4 col-xl-4 col-md-4"></div>
+</div>
 

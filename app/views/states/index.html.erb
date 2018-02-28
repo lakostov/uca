@@ -1,8 +1,24 @@
 <div class="under-nav">
 <h1>States</h1>
 </div>
+<div class="row">
+<div class="col-lg-4 col-xl-4 col-md-4"></div>
+<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Population</th>
+      <th>Breveries</th>
+    </tr>
+    </thead>
+
+  <tbody>
 <% @states.each do |state| %>
-<ul>
-	<li><%= state.abrv %> <%= state.name %> <%= state.population %> <%= state.lat %> <%= state.long %></li>
-</ul>
+<tr>
+	<td><%= link_to state.name, "/states/#{state.id}" %></td><td><%= state.population %></td><td><%= state.breweries.count() %></td>
+</tr>
 <% end %>
+</tbody>
+</table>
+<div class="col-lg-4 col-xl-4 col-md-4"></div>

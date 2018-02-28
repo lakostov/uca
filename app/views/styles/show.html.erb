@@ -1,9 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="under-nav">
+  <h1>Name: <%= @style.name %></h1>
+ </div>
+<h2><%= @style.name %> Crafts</h2>
+<div class="row">
+<div class="col-lg-3 col-xl-3 col-md-3"></div>
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Brewery</th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Name:</strong>
-  <%= @style.name %>
-</p>
+  <tbody>
+    <% Beer.where(style_id: @style.id).each do |beer| %>
+    <% brewery = Brewery.find(beer.brewery_id) %>
+      <tr>
+        <td><%= link_to beer.name, "/beers/#{beer.id}" %></td>
+        <td><%= link_to brewery.name, "/breweries/#{brewery.id}" %></td>
+        <%- #link_to 'Show', brewery %>
+        <%- #link_to 'Edit', edit_brewery_path(brewery) %>
+        <%- #link_to 'Destroy', brewery, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="col-lg-3 col-xl-3 col-md-3"></div>
 
-<%= link_to 'Edit', edit_style_path(@style) %> |
-<%= link_to 'Back', styles_path %>
+<%- #link_to 'Edit', edit_style_path(@style) %> 
+<%- #link_to 'Back', styles_path %>

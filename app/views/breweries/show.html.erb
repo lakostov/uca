@@ -1,22 +1,27 @@
 <div class="under-nav">
 <h2><%= @brewery.name %></h2>
 </div>
+  <h2>State: <%= link_to State.find(@brewery.state_id).name, "/states/#{@brewery.state_id}" %></h2>
+  <h3>City: <%= @brewery.city %></h3>
+<div class="row">
+<div class="col-lg-4 col-xl-4 col-md-4"></div>
+<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Style</th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>City:</strong>
-  <%= @brewery.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @brewery.state_id %>
-</p>
-
-<ul>
+  <tbody>
      <% @brewery.beers.each do |b| %>
-    <li><%= link_to b.name, "/beers/#{b.id}" %></li>
+    <tr>
+    <td><%= link_to b.name, "/beers/#{b.id}" %></td><td><%= link_to b.style.name, "/styles/#{b.style.id}" %></td>
+    </tr>
     <% end %>
-</ul>
-
-<%= link_to 'Edit', edit_brewery_path(@brewery) %> |
-<%= link_to 'Back', breweries_path %>
+</tbody>
+</table>
+<div class="col-lg-4 col-xl-4 col-md-4"></div>
+<%- #link_to 'Edit', edit_brewery_path(@brewery) %> 
+<%- #link_to 'Back', breweries_path %>
