@@ -14,10 +14,12 @@ Rails.application.routes.draw do
   get '/styles/:id', to: 'styles#show'
   
 
-  get'/api/beer', to: 'api#beer'
-  get'/api/brewery', to: 'api#brewery'
-  get'/api/state', to: 'api#state'
-  get'/api/style', to: 'api#style'
+  get '/api/beer', to: 'api#beer'
+  get '/api/brewery', to: 'api#brewery'
+  get '/api/state', to: 'api#state'
+  get '/api/style', to: 'api#style'
+
+  match '*a', :to => 'error#not_found', via: :get
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
