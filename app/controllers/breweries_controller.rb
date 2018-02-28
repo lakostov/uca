@@ -4,7 +4,7 @@ class BreweriesController < ApplicationController
   # GET /breweries
   # GET /breweries.json
   def index
-    @breweries = Brewery.order(:name)
+    @breweries = Brewery.order(:name).paginate(page: params[:page], per_page: 10)
   end
 
   # GET /breweries/1
