@@ -14,7 +14,8 @@
   </thead>
 
   <tbody>
-    <% Beer.where(style_id: @style.id).each do |beer| %>
+  	<% @beers = Beer.where(style_id: @style.id).order(:name).paginate(:page => params[:page], :per_page => 20) %>
+    <%  @beers.each do |beer| %>
     <% brewery = Brewery.find(beer.brewery_id) %>
       <tr>
         <td><%= link_to beer.name, "/beers/#{beer.id}" %></td>
@@ -30,4 +31,7 @@
 <div class="col-lg-3 col-xl-3 col-md-3"></div>
 <%- #link_to 'Edit', edit_style_path(@style) %> 
 <%- #link_to 'Back', styles_path %>
+</div>
+<div class="row">
+<%= will_paginate @beers %>
 </div>

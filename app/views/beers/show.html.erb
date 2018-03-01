@@ -11,7 +11,7 @@
     <% end %>
 <img class="float_left" src="/beer.png"/>
 <ul class="list_left">
-  <li>Abv: <%= @beer.abv %></li>
+  <li>Abv: <%= @beer.abv * 100 %>%</li>
   <li>Ibu: <%= @beer.ibu %></li>
   <li>Ounces: <%= @beer.ounces %></li>
   <li>Brewery: <%= link_to Brewery.find(@beer.brewery_id).name, "/breweries/#{@beer.brewery_id}" %></li>
