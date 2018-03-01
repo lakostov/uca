@@ -98,3 +98,9 @@ a:active {
 /* Dropdown menu font color*/ 
 
  .navbar-nav > li > .dropdown-menu a{   color: #555555;  }
+ .chart-container {
+  position: relative;
+  margin: auto;
+  height: 80vh;
+  width: 80vw;
+}

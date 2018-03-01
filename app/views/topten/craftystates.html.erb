@@ -1,0 +1,53 @@
+<div class="under-nav">
+<h2>Top 10 Crafty States</h2>
+</div>
+<div class="row">
+    <div class="chart-container">
+    <canvas id="chart"></canvas>
+</div>
+<script>
+var states = [];
+var beers = [];
+<% @states_beers.take(10).each do |k, v| %>
+states.push("<%= k %>");
+beers.push(<%= v %>);
+<% end %>
+var data = {
+  labels: states,
+  datasets: [{
+    label: "Number of Craft Beers",
+    backgroundColor: "rgba(255,99,132,0.2)",
+    borderColor: "rgba(255,99,132,1)",
+    borderWidth: 2,
+    hoverBackgroundColor: "rgba(255,99,132,0.4)",
+    hoverBorderColor: "rgba(255,99,132,1)",
+    data: beers
+  }]
+};
+
+var options = {
+  maintainAspectRatio: false,
+  scales: {
+    yAxes: [{
+      stacked: true,
+      gridLines: {
+        display: true,
+        color: "rgba(255,99,132,0.2)"
+      }
+    }],
+    xAxes: [{
+      gridLines: {
+        display: false
+      }
+    }]
+  }
+};
+
+new Chart('chart', {
+    type: 'horizontalBar',
+    data: data,
+    options: options
+});
+</script>
+
+</div>
