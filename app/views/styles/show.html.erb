@@ -1,10 +1,19 @@
 <div class="under-nav">
   <h1>Name: <%= @style.name %></h1>
  </div>
+<% all_beers = Beer.all.count() %>
+<% beers = @style.beers.count() %>
+<% beers_percent = (beers.to_f / all_beers) * 100 %>
 <div class="row">
-<h2><%= @style.name %> Crafts</h2>
 <div class="col-lg-3 col-xl-3 col-md-3"></div>
 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+<h3>Percentage of <%= @style.name %> of total crafts in the US</h3>
+<canvas id="myChart" class="myChart" style="display: block; height: 203px; width: 436px;margin-bottom: 20px;"></canvas>
+<script>
+new Chart(document.getElementById("myChart"),{"type":"doughnut","data":{"labels":["Other styles <%= (100 - beers_percent.to_i) %>%","<%= @style.name %> <%= (beers_percent.to_i < 1) ? "less than 1" : beers_percent.to_i %>%"],"datasets":[{"label":"Percent of total <%= @style.name %> in USA","data":[<%= (100 - beers_percent.to_i) %>, <%= beers_percent.to_i %>],"backgroundColor":["rgb(255, 99, 132)","rgb(255, 205, 86)"]}]}});
+Chart.defaults.global.defaultFontColor = '#666';
+</script>
+<h2><%= @style.name %> Crafts</h2>
 <table>
   <thead>
     <tr>
@@ -12,7 +21,6 @@
       <th>Brewery</th>
     </tr>
   </thead>
-
   <tbody>
   	<% @beers = Beer.where(style_id: @style.id).order(:name).paginate(:page => params[:page], :per_page => 20) %>
     <%  @beers.each do |beer| %>
