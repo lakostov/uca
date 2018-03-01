@@ -13,12 +13,11 @@
       <th>Style</th>
     </tr>
   </thead>
-
   <tbody>
   	 <% @beers =  @brewery.beers.order(:name).paginate(:page => params[:page], :per_page => 10) %>
      <% @beers.each do |b| %>
     <tr>
-    <td><%= link_to b.name, "/beers/#{b.id}" %></td><td><%= link_to b.style.name, "/styles/#{b.style.id}" %></td>
+    <td><%= link_to b.name, "/beers/#{b.id}" %></td><% if b.style_id %><td><%= link_to b.style.name, "/styles/#{b.style.id}" %></td><% else %><td></td><% end %>
     </tr>
     <% end %>
 </tbody>

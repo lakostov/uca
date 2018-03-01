@@ -30,7 +30,11 @@
         <td><%= beer.ibu %></td>
         <td><%= beer.ounces %></td>
         <td><%= link_to Brewery.find(beer.brewery_id).name, "breweries/#{beer.brewery_id}" %></td>
-        <td><%= link_to style.name, "styles/#{style.id}" %></td>
+        <% if beer.style_id %>
+  <td>Style: <%= link_to Style.find(beer.style_id).name, "/styles/#{beer.style_id}" %></td>
+  <% else %>
+  <td></td>
+  <% end %>
         <%- #link_to 'Show', beer %>
         <%- #link_to 'Edit', edit_beer_path(beer) %>
         <%- #link_to 'Destroy', beer, method: :delete, data: { confirm: 'Are you sure?' } %>
