@@ -1,9 +1,18 @@
 <div class="under-nav">
 <h1><%= @state.name %></h1>
+<% all_breweries = Brewery.all.count() %>
+<% breweries = @state.breweries.count() %>
+<% breweries_percent = (breweries.to_f / all_breweries) * 100 %>
 </div>
 <div class="row">
 <div class="col-lg-4 col-xl-4 col-md-4"></div>
 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+<h3>Percentage of breweries in <%= @state.name %> of total in US</h3>
+<canvas id="myChart" class="myChart" style="display: block; height: 203px; width: 436px;margin-bottom: 20px;"></canvas>
+<script>
+new Chart(document.getElementById("myChart"),{"type":"doughnut","data":{"labels":["Other states <%= (100 - breweries_percent.to_i) %>%","<%= @state.name %> <%= (breweries_percent.to_i < 1) ? "less than 1" : breweries_percent.to_i %>%"],"datasets":[{"label":"Percent of total production in USA","data":[<%= (100 - breweries_percent.to_i) %>, <%= breweries_percent.to_i %>],"backgroundColor":["rgb(255, 99, 132)","rgb(255, 205, 86)"]}]}});
+Chart.defaults.global.defaultFontColor = '#666';
+</script>
 <h4><%= link_to "Number of craft beers in #{@state.name}", "/states/beers/#{@state.id}" %>: <%= @num_beers %></h4>
 <h4>Number of craft beer breweries in <%= @state.name %>: <%= @state.breweries.count() %></h4>
 <h3>Breweries in <%= @state.name %>:</h3>
