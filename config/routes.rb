@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get '/breweries/:id', to: 'breweries#show'
   get '/beers/:id', to: 'beers#show'
   get '/topten/craftystates', to: 'topten#craftystates'
+  get '/topten/brewedstyles', to: 'topten#brewedstyles'
+  get '/topten/strongestbrews', to: 'topten#strongestbrews'
 
   get '/styles/:id', to: 'styles#show'
   

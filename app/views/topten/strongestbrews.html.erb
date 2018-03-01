@@ -1,0 +1,54 @@
+<div class="under-nav">
+<h2>Top 10 Stronges Crafts</h2>
+</div>
+<div class="row">
+    <div class="chart-container">
+    <canvas id="chart"></canvas>
+</div>
+<script>
+var beers = [];
+var abvs = [];
+<% @beers.take(10).each do |b| %>
+<% abv = b.abv * 100 %>
+beers.push("<%= b.name %>");
+abvs.push(<%= abv %>);
+<% end %>
+var data = {
+  labels: beers,
+  datasets: [{
+    label: "Alcohol by volume",
+    backgroundColor: "rgba(255,99,132,0.2)",
+    borderColor: "rgba(255,99,132,1)",
+    borderWidth: 2,
+    hoverBackgroundColor: "rgba(255,99,132,0.4)",
+    hoverBorderColor: "rgba(255,99,132,1)",
+    data: abvs
+  }]
+};
+
+var options = {
+  maintainAspectRatio: false,
+  scales: {
+    yAxes: [{
+      stacked: true,
+      gridLines: {
+        display: true,
+        color: "rgba(255,99,132,0.2)"
+      }
+    }],
+    xAxes: [{
+      gridLines: {
+        display: false
+      }
+    }]
+  }
+};
+
+new Chart('chart', {
+    type: 'horizontalBar',
+    data: data,
+    options: options
+});
+</script>
+
+</div>

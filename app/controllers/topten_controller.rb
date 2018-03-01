@@ -6,12 +6,12 @@ class ToptenController < ApplicationController
     end
     
     def strongestbrews
-        
+       @beers = Beer.all.order(abv: :desc)
     end
     
     def brewedstyles
-        
-    end
+       @styles = Beer.all.group(:style_id).count.sort_by {|_key, value| value}.reverse.to_h
+    end 
     
     def count_beers states
       states_beers = {}
