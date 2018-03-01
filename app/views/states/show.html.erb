@@ -4,6 +4,8 @@
 <div class="row">
 <div class="col-lg-4 col-xl-4 col-md-4"></div>
 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+<h4><%= link_to "Number of craft beers in #{@state.name}", "/states/beers/#{@state.id}" %>: <%= @num_beers %></h4>
+<h4>Number of craft beer breweries in <%= @state.name %>: <%= @state.breweries.count() %></h4>
 <h3>Breweries in <%= @state.name %>:</h3>
 <ul class="list_left">
 	 <% @breweries = @state.breweries.order(:name).paginate(:page => params[:page], :per_page => 10) %>

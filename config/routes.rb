@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get '/states', to: 'states#index'
   get '/states/:id', to: 'states#show'
+  get '/states/beers/:id', to: 'states#beers'
   get '/breweries/:id', to: 'breweries#show'
   get '/beers/:id', to: 'beers#show'
 
