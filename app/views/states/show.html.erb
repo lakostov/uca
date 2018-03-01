@@ -7,7 +7,7 @@
 <div class="row">
 <div class="col-lg-4 col-xl-4 col-md-4"></div>
 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-<h3>Percentage of breweries in <%= @state.name %> of total in US</h3>
+<h3>Breweries in <%= @state.name %>, percent of total in the US</h3>
 <canvas id="myChart" class="myChart" style="display: block; height: 203px; width: 436px;margin-bottom: 20px;"></canvas>
 <script>
 new Chart(document.getElementById("myChart"),{"type":"doughnut","data":{"labels":["Other states <%= (100 - breweries_percent.to_i) %>%","<%= @state.name %> <%= (breweries_percent.to_i < 1) ? "less than 1" : breweries_percent.to_i %>%"],"datasets":[{"label":"Percent of total production in USA","data":[<%= (100 - breweries_percent.to_i) %>, <%= breweries_percent.to_i %>],"backgroundColor":["rgb(255, 99, 132)","rgb(255, 205, 86)"]}]}});
