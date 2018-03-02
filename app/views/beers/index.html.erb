@@ -13,11 +13,11 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th class="home_header hidden-xs">Abv</th>
-      <th class="home_header hidden-xs">Ibu</th>
-      <th class="home_header hidden-xs">Ounces</th>
+      <th class="hidden-xs">Abv</th>
+      <th class="hidden-xs">Ibu</th>
+      <th class="hidden-xs">Ounces</th>
       <th>Brewery</th>
-      <th class="home_header hidden-xs">Style</th>
+      <th class="hidden-xs">Style</th>
     </tr>
   </thead>
 
@@ -30,14 +30,14 @@
     <% end %>
       <tr>
         <td><%= link_to beer.name, "/beers/#{beer.id}" %></td>
-        <td class="home_header hidden-xs"><%= beer.abv %></td>
-        <td class="home_header hidden-xs"><%= beer.ibu %></td>
-        <td class="home_header hidden-xs"><%= beer.ounces %></td>
+        <td class="hidden-xs"><%= beer.abv %></td>
+        <td class="hidden-xs"><%= beer.ibu %></td>
+        <td class="hidden-xs"><%= beer.ounces %></td>
         <td><%= link_to Brewery.find(beer.brewery_id).name, "/breweries/#{beer.brewery_id}" %></td>
         <% if beer.style_id %>
-  <td class="home_header hidden-xs">Style: <%= link_to Style.find(beer.style_id).name, "/styles/#{beer.style_id}" %></td>
+  <td class="hidden-xs">Style: <%= link_to Style.find(beer.style_id).name, "/styles/#{beer.style_id}" %></td>
   <% else %>
-  <td class="home_header hidden-xs"></td>
+  <td class="hidden-xs"></td>
   <% end %>
         <%- #link_to 'Show', beer %>
         <%- #link_to 'Edit', edit_beer_path(beer) %>
