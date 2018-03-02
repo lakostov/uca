@@ -1,0 +1,58 @@
+<div class="under-nav">
+<h1>Crafts</h1>
+</div>
+<div class="row">
+<div class="col-lg-3 col-xl-3 col-md-3"></div>
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+  <h4>Search beer by name</h4>
+<%= form_tag("/beers/search", :method => "post") do %>
+    <%= text_field_tag :name, params[:name] %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Abv</th>
+      <th>Ibu</th>
+      <th>Ounces</th>
+      <th>Brewery</th>
+      <th>Style</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if @beers.empty? %><% @beers = Beer.order(:name).paginate(page: params[:page], per_page: 10) %><% @message = "No beer matches your search" %><% end %>
+    <span class="error"><%= @message ? @message : "" %></span>
+    <% @beers.each do |beer| %>
+    <% if beer.style_id %>
+    <% style = Style.find(beer.style_id) %>
+    <% else %>
+    <% style = Style.find(378) %>
+    <% end %>
+      <tr>
+        <td><%= link_to beer.name, "/beers/#{beer.id}" %></td>
+        <td><%= beer.abv %></td>
+        <td><%= beer.ibu %></td>
+        <td><%= beer.ounces %></td>
+        <td><%= link_to Brewery.find(beer.brewery_id).name, "/breweries/#{beer.brewery_id}" %></td>
+        <% if beer.style_id %>
+  <td>Style: <%= link_to Style.find(beer.style_id).name, "/styles/#{beer.style_id}" %></td>
+  <% else %>
+  <td></td>
+  <% end %>
+        <%- #link_to 'Show', beer %>
+        <%- #link_to 'Edit', edit_beer_path(beer) %>
+        <%- #link_to 'Destroy', beer, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<div class="col-lg-3 col-xl-3 col-md-3"></div>
+<%- #link_to 'New Beer', new_beer_path %>
+</div>
+<div class="row">
+<%= will_paginate @beers %>
+</div>

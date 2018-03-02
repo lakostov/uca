@@ -1,0 +1,42 @@
+<div class="under-nav">
+<h1>Breweries</h1>
+</div>
+<div class="row">
+<div class="col-lg-3 col-xl-3 col-md-3"></div>
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+  <h4>Search brewery by name</h4>
+  <%= form_tag("/breweries/search", :method => "post") do %>
+    <%= text_field_tag :name, params[:name] %>
+    <%= submit_tag "Search", :name => nil %>
+  <% end %>
+    <% if @breweries.empty? %><% @breweries = Brewery.order(:name).paginate(page: params[:page], per_page: 10) %><% @message = "No brewery matches your search" %><% end %>
+    <span class="error"><%= @message ? @message : "" %></span>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>City</th>
+      <th>State</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @breweries.each do |brewery| %>
+      <tr>
+        <td><%= link_to brewery.name, "/breweries/#{brewery.id}" %></td>
+        <td><%= brewery.city %></td>
+        <td><%= link_to State.find(brewery.state_id).name, "/states/#{brewery.state_id}" %></td>
+        <%- #link_to 'Show', brewery %>
+        <%- #link_to 'Edit', edit_brewery_path(brewery) %>
+        <%- #link_to 'Destroy', brewery, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<div class="col-lg-3 col-xl-3 col-md-3"></div>
+</div>
+<div class="row">
+<%- #link_to 'New Brewery', new_brewery_path %>
+<%= will_paginate @breweries %>
+</div>

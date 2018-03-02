@@ -98,6 +98,11 @@ a:active {
 .center {
 	text-align: center;
 }
+.error {
+    display: block;
+    margin: 10px auto;
+	color: red;
+}
 /* Dropdown menu background color*/
 
 .navbar-nav > li > .dropdown-menu {     background-color: #222;  }

@@ -13,6 +13,14 @@ class StylesController < ApplicationController
     @style = Style.find(params[:id])
   end
 
+  def search
+    if params[:name]
+      @styles = Style.where("name LIKE ?", "%#{params[:name]}%").order(:name).paginate(page: params[:page], per_page: 10)
+    else
+      @styles = Style.order(:name).paginate(page: params[:page], per_page: 10)
+    end
+  end
+
   # GET /styles/new
   def new
     @style = Style.new

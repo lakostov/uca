@@ -13,6 +13,14 @@ class BreweriesController < ApplicationController
     @brewery = Brewery.find(params[:id])
   end
 
+  def search
+    if params[:name]
+      @breweries = Brewery.where("name LIKE ?", "%#{params[:name]}%").order(:name).paginate(page: params[:page], per_page: 10)
+    else
+       @breweries = Brewery.order(:name).paginate(page: params[:page], per_page: 10)
+    end
+  end
+
   # GET /breweries/new
   def new
     @brewery = Brewery.new
