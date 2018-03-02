@@ -1,35 +1,38 @@
-e96b6d6	Lachezar	Fri Mar 2 13:31:16 2018	Add content to views
-4db8d08	Lachezar	Fri Mar 2 00:14:50 2018	Fix charts layout
-a0835c5	Lachezar	Thu Mar 1 23:25:36 2018	Populate top ten charts
+3566c62		Fri Mar 2 17:44:37 2018	Modify Readme file
+64b61bc		Fri Mar 2 17:14:39 2018	Change search to caseinsensitive for postgre
+5f68d23		Fri Mar 2 16:51:38 2018	Add search to breweries beer and styles
+e96b6d6		Fri Mar 2 13:31:16 2018	Add content to views
+4db8d08		Fri Mar 2 00:14:50 2018	Fix charts layout
+a0835c5		Thu Mar 1 23:25:36 2018	Populate top ten charts
 57c2cf8	Real	Thu Mar 1 19:04:57 2018	Create topten crafty states chart
-ee8c883	Lachezar	Thu Mar 1 17:39:34 2018	Add dropdown menu items
-bd46eef	Lachezar	Thu Mar 1 17:00:54 2018	Fixe a mising style values bug
-aa455ef	Lachezar	Thu Mar 1 16:11:20 2018	Add charts to each style
-b35e820	Lachezar	Thu Mar 1 15:27:07 2018	Add charts for breweries in each state
-5fe0ee3	Lachezar	Thu Mar 1 12:21:27 2018	Get chart data ready and display beers per state
-df66b56	Lachezar	Thu Mar 1 00:50:13 2018	Create rescue for record not found
-14c3611	Lachezar	Thu Mar 1 00:15:20 2018	Paginate beers and breweries in styles breweries states
-638cdbf	Lachezar	Wed Feb 28 23:38:29 2018	Fix pagination layout
-ca4b13d	Lachezar	Wed Feb 28 23:28:58 2018	Paginate
-5e6ecfe	Lachezar	Wed Feb 28 22:45:59 2018	Fix another layout bug
-e75bfad	Lachezar	Wed Feb 28 20:41:54 2018	Fix layout bug
-40f1a2a	Lachezar	Wed Feb 28 19:04:43 2018	Create custom 404 page not found
+ee8c883		Thu Mar 1 17:39:34 2018	Add dropdown menu items
+bd46eef		Thu Mar 1 17:00:54 2018	Fixe a mising style values bug
+aa455ef		Thu Mar 1 16:11:20 2018	Add charts to each style
+b35e820		Thu Mar 1 15:27:07 2018	Add charts for breweries in each state
+5fe0ee3		Thu Mar 1 12:21:27 2018	Get chart data ready and display beers per state
+df66b56		Thu Mar 1 00:50:13 2018	Create rescue for record not found
+14c3611		Thu Mar 1 00:15:20 2018	Paginate beers and breweries in styles breweries states
+638cdbf		Wed Feb 28 23:38:29 2018	Fix pagination layout
+ca4b13d		Wed Feb 28 23:28:58 2018	Paginate
+5e6ecfe		Wed Feb 28 22:45:59 2018	Fix another layout bug
+e75bfad		Wed Feb 28 20:41:54 2018	Fix layout bug
+40f1a2a		Wed Feb 28 19:04:43 2018	Create custom 404 page not found
 310983a	Real	Wed Feb 28 17:54:56 2018	config routes
-3cf4dd5	Lachezar	Wed Feb 28 17:47:55 2018	Display and format data on pages
+3cf4dd5		Wed Feb 28 17:47:55 2018	Display and format data on pages
 82b2362	Real	Wed Feb 28 17:33:25 2018	Creat API
 b441db7	Real	Wed Feb 28 16:13:13 2018	Api controller
-091b451	Lachezar	Wed Feb 28 01:27:54 2018	Create navigation and style pages
+091b451		Wed Feb 28 01:27:54 2018	Create navigation and style pages
 b4d49e5	Real	Tue Feb 27 19:12:48 2018	Connect pages
-0d94716	Lachezar	Tue Feb 27 18:03:15 2018	Integrate data on Google Maps
+0d94716		Tue Feb 27 18:03:15 2018	Integrate data on Google Maps
 b79ec49	Real	Wed Feb 21 17:56:38 2018	Calculating craft per head of population ration in welcome controller
 145e63d	Real	Wed Feb 21 16:43:38 2018	Install bootstrap
-f5c548d	Lachezar	Mon Feb 12 14:50:11 2018	Fixing beer.rake Brewery Id adding bid column to breweries
-dda2d64	Lachezar	Mon Feb 12 11:15:40 2018	Fixing breweies form
-6d35538	Lachezar	Mon Feb 12 00:09:53 2018	Add content to index
-78454bb	Lachezar	Mon Feb 12 00:01:26 2018	Change index content
-fd9cbd3	Lachezar	Sun Feb 11 23:49:34 2018	Create scaffolds seed the database create associations
-6e2942e	Lachezar	Sun Feb 11 13:45:47 2018	Change Postgre version
-0bc7d43	Lachezar	Sun Feb 11 13:23:43 2018	Initialise Welcome page
-02075ea	Lachezar	Sun Feb 11 13:07:52 2018	Update Gemfile.lock
-ecc381c	Lachezar	Sun Feb 11 12:54:43 2018	Set up production environment in Gemfile
-d9771b8	Lachezar	Sun Feb 11 12:37:53 2018	Initialise repositoty
+f5c548d		Mon Feb 12 14:50:11 2018	Fixing beer.rake Brewery Id adding bid column to breweries
+dda2d64		Mon Feb 12 11:15:40 2018	Fixing breweies form
+6d35538		Mon Feb 12 00:09:53 2018	Add content to index
+78454bb		Mon Feb 12 00:01:26 2018	Change index content
+fd9cbd3		Sun Feb 11 23:49:34 2018	Create scaffolds seed the database create associations
+6e2942e		Sun Feb 11 13:45:47 2018	Change Postgre version
+0bc7d43		Sun Feb 11 13:23:43 2018	Initialise Welcome page
+02075ea		Sun Feb 11 13:07:52 2018	Update Gemfile.lock
+ecc381c		Sun Feb 11 12:54:43 2018	Set up production environment in Gemfile
+d9771b8		Sun Feb 11 12:37:53 2018	Initialise repositoty
