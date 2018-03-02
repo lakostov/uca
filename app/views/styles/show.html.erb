@@ -1,5 +1,5 @@
 <div class="under-nav">
-  <h1>Name: <%= @style.name %></h1>
+  <h1>Style: <%= @style.name %></h1>
  </div>
 <% all_beers = Beer.all.count() %>
 <% beers = @style.beers.count() %>
@@ -13,7 +13,7 @@
 new Chart(document.getElementById("myChart"),{"type":"doughnut","data":{"labels":["Other styles <%= (100 - beers_percent.to_i) %>%","<%= @style.name %> <%= (beers_percent.to_i < 1) ? "less than 1" : beers_percent.to_i %>%"],"datasets":[{"label":"Percent of total <%= @style.name %> in USA","data":[<%= (100 - beers_percent.to_i) %>, <%= beers_percent.to_i %>],"backgroundColor":["rgb(255, 99, 132)","rgb(255, 205, 86)"]}]}});
 Chart.defaults.global.defaultFontColor = '#666';
 </script>
-<h2><%= @style.name %> Crafts</h2>
+<h2>Crafts: <%= Beer.where(style_id: @style.id).count() %></h2>
 <table>
   <thead>
     <tr>

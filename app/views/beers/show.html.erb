@@ -12,6 +12,7 @@
   <li>Brewery: <%= link_to Brewery.find(@beer.brewery_id).name, "/breweries/#{@beer.brewery_id}" %></li>
   <% if @beer.style_id %>
   <li>Style: <%= link_to Style.find(@beer.style_id).name, "/styles/#{@beer.style_id}" %></li>
+  <li>State: <%= link_to State.find(Brewery.find(@beer.brewery_id).state_id).name, "/states/#{State.find(Brewery.find(@beer.brewery_id).state_id).id}" %></li>
   <% end %>
 </ul>
 </div>

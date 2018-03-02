@@ -10,13 +10,14 @@
       <th>Name</th>
       <th>Population</th>
       <th>No. of Breweries</th>
+      <th>No. of Crafts</th>
     </tr>
     </thead>
 
   <tbody>
 <% @states.each do |state| %>
 <tr>
-	<td><%= link_to state.name, "/states/#{state.id}" %></td><td><%= state.population %></td><td><%= state.breweries.count() %></td>
+	<td><%= link_to state.name, "/states/#{state.id}" %></td><td><%= state.population %></td><td class="center"><%= state.breweries.count() %></td><td class="center"><%= Beer.where('brewery_id IN (?)', state.breweries.select(:id)).count() %></td>
 </tr>
 <% end %>
 </tbody>
