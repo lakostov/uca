@@ -15,7 +15,7 @@ class StylesController < ApplicationController
 
   def search
     if params[:name]
-      @styles = Style.where("name LIKE ?", "%#{params[:name]}%").order(:name).paginate(page: params[:page], per_page: 10)
+      @styles = Style.where("lower(name) LIKE ?", "%#{params[:name].downcase}%").order(:name).paginate(page: params[:page], per_page: 10)
     else
       @styles = Style.order(:name).paginate(page: params[:page], per_page: 10)
     end

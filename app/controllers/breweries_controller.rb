@@ -15,7 +15,7 @@ class BreweriesController < ApplicationController
 
   def search
     if params[:name]
-      @breweries = Brewery.where("name LIKE ?", "%#{params[:name]}%").order(:name).paginate(page: params[:page], per_page: 10)
+      @breweries = Brewery.where("lower(name) LIKE ?", "%#{params[:name].downcase}%").order(:name).paginate(page: params[:page], per_page: 10)
     else
        @breweries = Brewery.order(:name).paginate(page: params[:page], per_page: 10)
     end
